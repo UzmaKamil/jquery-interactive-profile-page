@@ -61,8 +61,6 @@ The application features a structured layout containing a header, profile sectio
 ```text
 jquery-interactive-profile-page/
 │── index.html
-│── style.css
-│── images/
 └── README.md
 ```
 
