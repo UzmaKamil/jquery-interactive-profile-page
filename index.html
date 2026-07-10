@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Class Activity - Uzma</title>
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ========================= GLOBAL ========================= */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: #f1f5f9;
+    transition: 0.5s;
+}
+
+/* ========================= HEADER ========================= */
+header {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #6366f1, #3b82f6);
+    color: white;
+}
+
+/* ========================= SECTIONS ========================= */
+section {
+    margin: 20px auto;
+    padding: 25px;
+    width: 85%;
+    max-width: 900px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.05);
+}
+
+/* ========================= PROFILE ========================= */
+#profile {
+    text-align: center;
+}
+
+#profile img {
+    border-radius: 50%;
+    border: 3px solid #6366f1;
+    width: 150px;
+}
+
+/* ========================= CONTENT ========================= */
+#content p {
+    background: rgba(255,255,255,0.05);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* ========================= BUTTONS ========================= */
+button {
+    margin: 10px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #6366f1;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3b82f6;
+}
+
+/* ========================= RESPONSIVE ========================= */
+@media (max-width:600px){
+    section { width: 95%; }
+    button { width: 100%; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <h1>jQuery</h1>
+    <p class="changeColor">jQuery Class Activity</p>
+</header>
+
+<!-- PROFILE -->
+<section id="profile">
+    <h2>Profile</h2>
+    <img src="Sara Khan.png">
+    <p class="bio">Hello! I am learning jQuery and building interactive pages.</p>
+</section>
+
+<!-- CONTENT -->
+<section id="content">
+    <h2>Content</h2>
+    <p class="content-text">Paragraph 1</p>
+    <p class="content-text">Paragraph 2</p>
+</section>
+
+<!-- BUTTONS -->
+<section>
+    <h2>Features</h2>
+    <button id="toggleBio">Show/Hide Bio</button>
+    <button id="themeBtn">Change Theme</button>
+    <button id="fadeImage">Fade Image</button>
+    <button id="slideContent">Slide Content</button>
+    <button id="highlightText">Highlight Text</button>
+    <button id="toggleContent">Toggle Content</button>
+    <button id="animateBtn">Animate</button>
+</section>
+
+<!-- SCRIPT -->
+<script>
+$(document).ready(function(){
+
+    let darkTheme = true;
+
+    // ---------------- SELECTORS ----------------
+    $(".content-text").css("color", "#e2e8f0");
+    $("p").css("font-size", "16px");
+    $("h1, p").css("margin", "5px");
+
+    // ---------------- BUTTONS ----------------
+    $("#toggleBio").click(function(){
+        $(".bio").toggle();
+    });
+
+$("#themeBtn").click(function(){
+    if(darkTheme){
+        // Light theme
+        $("body").css({"background":"#f1f5f9","color":"#000"});
+        $(".bio, .content-text").css("color","#000");  
+        darkTheme = false;
+    } else {
+        // Dark theme
+        $("body").css({"background":"#1e293b","color":"#fff"});
+        $(".bio, .content-text").css("color","#f1f5f9");  
+        darkTheme = true;
+    }
+});
+
+    $("#fadeImage").click(function(){
+        $("#profile img").fadeToggle();
+    });
+
+    $("#slideContent").click(function(){
+        $("#content").slideToggle();
+    });
+
+$("#highlightText").click(function(){
+    $(".content-text").css({
+        "background-color": "#475569",
+        "color": "#f1f5f9",
+        "padding": "5px",
+        "border-radius": "5px"
+    });
+});
+
+    $("#toggleContent").click(function(){
+        $(".content-text").toggle();
+    });
+
+    // ---------------- EVENTS ----------------
+    $("#profile").dblclick(function(){
+        $(this).fadeOut();
+    });
+
+    $(".content-text").mouseover(function(){
+        $(this).css("background","#334155");
+    }).mouseout(function(){
+        $(this).css("background","");
+    });
+
+    $("#profile").hover(
+        function(){ $(this).css("border","2px solid white"); },
+        function(){ $(this).css("border","none"); }
+    );
+
+    // ---------------- ANIMATION ----------------
+    $("#animateBtn").click(function(){
+        $(this).animate({width:"200px"}).animate({width:"150px"});
+    });
+
+});
+</script>
+
+</body>
+</html>
